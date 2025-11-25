@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sorry Riddhi 💗</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: #fff5fb;
+        font-family: "Poppins", sans-serif;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    /* Floating soft vibe emojis */
+    .floatEmoji {
+        position: fixed;
+        font-size: 22px;
+        opacity: 0.55;
+        animation: floatUp 6s linear infinite;
+    }
+    @keyframes floatUp {
+        0% { transform: translateY(110vh); }
+        100% { transform: translateY(-20vh); }
+    }
+
+    /* Card */
+    .card {
+        background: white;
+        padding: 30px;
+        max-width: 400px;
+        margin: 110px auto;
+        border-radius: 25px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.10);
+        animation: fadeIn 1.2s ease-out;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(25px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+        color: #ff8cc8;
+        font-size: 2rem;
+        animation: softPop 1s ease-out;
+    }
+    @keyframes softPop {
+        0% { transform: scale(0.8); opacity: 0; }
+        100% { transform: scale(1); opacity: 1; }
+    }
+
+    p { color: #666; font-size: 1.1rem; line-height: 1.6; }
+
+    .btn {
+        padding: 12px 25px;
+        border: none;
+        border-radius: 30px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        margin: 10px;
+        transition: 0.3s;
+    }
+
+    #yesBtn {
+        background: #ff7fbd;
+        color: white;
+    }
+    #yesBtn:hover {
+        background: #ff5ba6;
+    }
+
+    #noBtn {
+        background: #dedede;
+        color: #444;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .popup {
+        font-size: 2rem;
+        animation: pop 0.6s ease-out;
+        margin-top: 10px;
+    }
+    @keyframes pop {
+        0% { transform: scale(0.4); opacity: 0; }
+        100% { transform: scale(1); opacity: 1; }
+    }
+</style>
+</head>
+<body>
+
+<!-- Floating cute emojis -->
+<script>
+    const emo = ["✨","🌸","💗","⭐","💫","🤍"];
+
+    function spawnEmoji() {
+        const e = document.createElement("div");
+        e.classList.add("floatEmoji");
+        e.innerHTML = emo[Math.floor(Math.random() * emo.length)];
+        e.style.left = Math.random() * 100 + "vw";
+        e.style.animationDuration = 5 + Math.random() * 3 + "s";
+        document.body.appendChild(e);
+        setTimeout(() => e.remove(), 7000);
+    }
+    setInterval(spawnEmoji, 600);
+</script>
+
+<div class="card" id="cardContent">
+
+    <h1>I'm really sorry Riddhi 💗</h1>
+    <p><b>Will you forgive me? 🥺✨</b><br>— Satvik</p>
+
+    <button class="btn" id="yesBtn" onclick="yesClicked()">Yes 💗</button>
+    <button class="btn" id="noBtn" onclick="moveNoButton()">No 😭</button>
+
+</div>
+
+<script>
+    // NO button movement
+    function moveNoButton() {
+        const btn = document.getElementById("noBtn");
+        const x = Math.random() * (window.innerWidth - 120);
+        const y = Math.random() * (window.innerHeight - 120);
+
+        btn.style.left = x + "px";
+        btn.style.top = y + "px";
+    }
+
+    // YES Button → Show final page
+    function yesClicked() {
+        document.getElementById("cardContent").innerHTML = `
+            <h1>Yayyy!! 🎉💗</h1>
+            <p>
+                Thank you Riddhi 🫶<br>
+                You're seriously the sweetest!<br><br>
+                Best of luck for your exam ✨<br>
+                You're going to do amazing 💗<br><br>
+                Please unblock me... I want to be your friend again 🥺💗<br>
+                Waiting for your message 💌<br><br>
+                — Satvik 💞
+            </p>
+
+            <div class="popup">🎉✨🎉</div>
+            <div class="popup">🌟💗🌟</div>
+        `;
+    }
+</script>
+
+</body>
+</html>
